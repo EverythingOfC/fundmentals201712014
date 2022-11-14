@@ -18,6 +18,7 @@ import java.util.List;
 public class MemberController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         MemberDAO memberDAOImpl = new MemberDAOImpl(); // MemberDAO 인터페이스의 다양한 구현 클래스를 대입할 수 있다.
         List<Member> memberList = memberDAOImpl.readList();
 
@@ -26,8 +27,9 @@ public class MemberController extends HttpServlet {
         }
 
         request.setAttribute("list",memberList);
-        request.getRequestDispatcher("member-list.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("member-list.jsp");
 
+        rd.forward(request,response); // 포워드함수를 통해 제어를 이동한다.
     }
 
     @Override

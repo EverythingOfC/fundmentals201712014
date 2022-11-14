@@ -10,7 +10,7 @@ public class OracleDAO implements DAO{ // DAO 인터페이스를 구현한 Oracl
         Connection conn = null;
         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:XE";
         String dbUser = "system"; // 사용자
-        String dbPass = "cometrue"; // 비밀번호
+        String dbPass = "cometrue"; // 비밀번호 ( 학원에서는 다시 바꿔야 함. cometrue)
 
         try{
             Class.forName("oracle.jdbc.OracleDriver");
@@ -24,6 +24,13 @@ public class OracleDAO implements DAO{ // DAO 인터페이스를 구현한 Oracl
 
     @Override
     public void closeResources(Connection conn,Statement stmt,PreparedStatement pstmt,ResultSet rs){
-
+        try {
+            conn.close();
+            stmt.close();
+            pstmt.close();
+            rs.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

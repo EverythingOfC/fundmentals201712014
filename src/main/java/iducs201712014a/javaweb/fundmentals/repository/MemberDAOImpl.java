@@ -24,15 +24,13 @@ public class MemberDAOImpl extends OracleDAO implements MemberDAO{ // MemberDAO�
         String sql = "select * from tab";
 
         try{
-
             conn = getConnection(); // DB 연결 객체 생성
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             memberList = new ArrayList<Member>(); // Member객체들을 List로 담음
 
             while(rs.next()){
-
-                retMember = new Member();
+                retMember = new Member(); // Member형 객체
                 retMember.setTname(rs.getString("tname")); // tname값만 계속 가져온다.
                 memberList.add(retMember); // 계속 저장한다.
             }

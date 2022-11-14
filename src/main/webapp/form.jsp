@@ -50,7 +50,7 @@
 </head>
 <body>
 
-<form id="login" action="members" method="post"> <!-- members로 url 매핑된 이름이 있는 파일로 간다.경로는 중요하지 않다. 서블릿의 value와 관련이 있다. -->
+<form id="login" action="member-list" method="get"> <!-- members로 url 매핑된 이름이 있는 파일로 간다.경로는 중요하지 않다. 서블릿의 value와 관련이 있다. -->
 
     <fieldset>
         <legend>회원 가입</legend>

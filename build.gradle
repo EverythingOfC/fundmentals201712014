@@ -3,7 +3,7 @@ plugins {
     id 'war'
 }
 
-group 'com.example'
+group 'iducs201712014a.javaweb'
 version '1.0-SNAPSHOT'
 
 repositories {
