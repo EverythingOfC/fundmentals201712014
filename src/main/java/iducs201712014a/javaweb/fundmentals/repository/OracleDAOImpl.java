@@ -2,7 +2,7 @@ package iducs201712014a.javaweb.fundmentals.repository;
 
 import java.sql.*;
 
-public class OracleDAO implements DAO{ // DAO 인터페이스를 구현한 OracleDAO 구현 클래스
+public class OracleDAOImpl implements DAO{ // DAO 인터페이스를 구현한 OracleDAO 구현 클래스
 
     @Override
     public Connection getConnection(){

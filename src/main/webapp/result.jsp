@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,8 +43,9 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
                     <h1>result</h1>
-                    <span class="subheading"><%="요청 name: " + request.getParameter("name")%></span>
-                    <span class="subheading"><%="요청 email: " + request.getParameter("email")%></span>
+                   <c:forEach var="member" items="${members}">
+                       <h3>${member.email} : ${member.name}</h3>
+                   </c:forEach>
                 </div>
             </div>
         </div>

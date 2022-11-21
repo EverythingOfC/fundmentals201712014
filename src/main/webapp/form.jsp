@@ -50,21 +50,24 @@
 </head>
 <body>
 
-<form id="login" action="member-list" method="get"> <!-- members로 url 매핑된 이름이 있는 파일로 간다.경로는 중요하지 않다. 서블릿의 value와 관련이 있다. -->
+<form id="login" action="members" method="post"> <!-- member-list로 url 매핑된 이름이 있는 서블릿 파일로 간다.경로는 중요하지 않다. 서블릿의 value와 관련이 있다. -->
 
     <fieldset>
         <legend>회원 가입</legend>
-        <label for="name">이름: &nbsp;</label>
-        <input type="text" id="name" name="fullname" value="미지정" placeholder=" 1 ~ 10자 이내로 입력하세요."><br/>
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" value="" placeholder=" 1 ~ 10자 이내로 입력하세요."><br/>
 
-        <label for="email">이메일: </label>
+        <label for="pw">비밀번호:</label>
+        <input type="text" id="pw" name="pw" value="" placeholder=" 1 ~ 10자 이내로 입력하세요."><br/>
+
+        <label for="email">이메일:</label>
         <input type="email" id="email" name="email" placeholder="유효한 이메일을 입력하세요."><br/>
 
-        <label for="tel">연락처: </label>
+        <label for="tel">연락처:</label>
         <input type="tel" id="tel" name="tel" placeholder="'-'를 제외하고 입력하세요."><br/>
 
-        <label for="message">메시지: </label>
-        <input type="tel" id="message" name="message"><br/>
+        <label for="address">주소: </label>
+        <input type="text" id="address" name="address"><br/>
 
         <input type="submit" id="check" value="확인"/>
     </fieldset>
