@@ -14,15 +14,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@WebServlet(name = "MemberController", value = "/members") // form의 action값과 일치하면 해당 서블릿 호출
+@WebServlet(name = "MemberController",
+    urlPatterns = {"/members", "/member-create","/member-detail"}
+)
+        // form의 action값과 일치하면 해당 서블릿 호출
 public class MemberController extends HttpServlet {
 
     MemberDAO memberDAOImpl = new MemberDAOImpl(); // MemberDAO 인터페이스의 다양한 구현 클래스를 대입할 수 있다.
 
+    protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        HttpSession session = request.getSession(); // 세션 객체를 가져옴.
+        String uri = request.getRequestURI(); // / 뒤의 URI만 얻어옴.
+        String action = uri.substring(uri.lastIndexOf("/")+1); // 처음부터 마지막 /가 있는 인덱스의 위치까지 잘라온다.
+        System.out.println(action);
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+        // 전체 목록 조회
+        doProcess(request,response);
         List<Member> memberList = new ArrayList<Member>();
 
         if ((memberList = memberDAOImpl.readList()) != null){
@@ -42,8 +52,9 @@ public class MemberController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
+        doProcess(request,response);
 
+        request.setCharacterEncoding("utf-8");
         int ret = 0;
         Member m = new Member();
         m.setEmail(request.getParameter("email"));

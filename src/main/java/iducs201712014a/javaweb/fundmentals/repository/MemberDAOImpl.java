@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // MemberDAO의 구현 클래스
 
-    // 연관 객체 선언
+    // DB 연관 객체 선언
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
@@ -45,7 +45,7 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
     }
 
     @Override
-    public int create(Member m) {
+    public int create(Member m) { // 등록
 
         int ret = 0;
 
@@ -74,16 +74,81 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
 
     @Override
     public Member read(Member m) {
-        return null;
+
+        List<Member> memberList = null;
+
+        Member retMember = null;
+        String sql = "select * from member1 where email = '" + m.getEmail() +"'";
+
+        try{
+            conn = getConnection(); // DB 연결 객체 생성
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+
+            while(rs.next()){
+                retMember = new Member(); // Member형 객체
+                retMember.setName(rs.getString("name"));
+                retMember.setEmail(rs.getString("email"));
+                retMember.setAddress(rs.getString("address"));
+                retMember.setPw(rs.getString("pw"));
+                retMember.setPhone(rs.getString("phone"));
+            }
+
+        }catch(SQLException e){ // try문 오류처리
+            System.out.println(e.getMessage());
+        }finally {
+            closeResources(conn,stmt,pstmt,rs); // 메모리 해제
+            return retMember;
+        }
+
     }
 
     @Override
     public int update(Member m) {
-        return 0;
+
+        int ret = 0;
+
+        String sql = "update member1 set email = ?, pw = ?, name = ?, phone =?, address =? where email ='" + m.getEmail() +"'";
+
+        try{
+            conn = getConnection(); // DB 연결 객체 생성
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1,m.getEmail());
+            pstmt.setString(2,m.getPw());
+            pstmt.setString(3,m.getName());
+            pstmt.setString(4,m.getPhone());
+            pstmt.setString(5,m.getAddress());
+
+            ret = pstmt.executeUpdate(); // 쿼리 업데이트( 성공시 1 반환)
+
+        }catch(SQLException e){ // try문 오류처리
+            System.out.println(e.getMessage());
+        }finally {
+            closeResources(conn,stmt,pstmt,rs); // 메모리 해제
+            return ret;
+        }
+
     }
 
     @Override
     public int delete(Member m) {
-        return 0;
+
+        int ret = 0;
+
+        String sql = "delete from member1 where email ='" + m.getEmail() +"'";
+
+        try{
+            conn = getConnection(); // DB 연결 객체 생성
+
+            stmt = conn.createStatement();
+            ret = stmt.executeUpdate(sql); // 쿼리 업데이트( 성공시 1반환)
+
+        }catch(SQLException e){ // try문 오류처리
+            System.out.println(e.getMessage());
+        }finally {
+            closeResources(conn,stmt,pstmt,rs); // 메모리 해제
+            return ret;
+        }
     }
 }

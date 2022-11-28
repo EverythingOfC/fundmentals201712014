@@ -46,40 +46,53 @@
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Contact Form * *-->
                     <!-- * * * * * * * * * * * * * * *-->
-                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- This form is pre-integrated with1 SB Forms.-->
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" action="contacts" method="get">
+                    <form id="contactForm" action="member-create" method="get">
+
+                        <div class="form-floating">
+                            <input class="form-control" name="email" id="email" type="email"
+                                   placeholder="Enter your email..." data-sb-validations="email"/>
+                            <label for="email">Email</label>
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+
                         <div class="form-floating">
                             <input class="form-control" name="name" id="name" type="text"
                                    placeholder="Enter your name..." data-sb-validations=""/>
                             <label for="name">Name</label>
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
+
                         <div class="form-floating">
-                            <input class="form-control" name="email" id="email" type="email"
-                                   placeholder="Enter your email..." data-sb-validations="email"/>
-                            <label for="email">Email address</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            <input class="form-control" name="pw" id="pw" type="password"
+                                   placeholder="Enter your name..." data-sb-validations=""/>
+                            <label for="pw">Password</label>
+                            <div class="invalid-feedback" data-sb-feedback="pw:required">A name is required.</div>
                         </div>
+
                         <div class="form-floating">
-                            <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..."
+                            <input class="form-control" name="phone" id="phone" type="tel" placeholder="Enter your phone number..."
                                    data-sb-validations=""/>
                             <label for="phone">Phone Number</label>
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
                                 required.
                             </div>
                         </div>
+
                         <div class="form-floating">
-                            <textarea class="form-control" id="message" placeholder="Enter your message here..."
-                                      style="height: 12rem" data-sb-validations=""></textarea>
-                            <label for="message">Message</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
+                            <input class="form-control" name="address" id="address" type="text" placeholder="Enter your phone number..."
+                                   data-sb-validations=""/>
+                            <label for="address">Address</label>
+                            <div class="invalid-feedback" data-sb-feedback="address:required">A phone number is
+                                required.
                             </div>
                         </div>
                         <br/>
+
                         <!-- Submit success message-->
                         <!---->
                         <!-- This is what your users will see when the form-->

@@ -17,35 +17,52 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
+<style>
+
+
+    .page-heading table{
+        width:700px;
+        margin-top:10vw;
+    }
+    .page-heading table td,.page-heading table th {
+        padding:10px;
+        border:2px solid black;
+        border-collapse: collapse;
+        text-align:left;
+        font-size:0.9em;
+    }
+    .page-heading table th{
+        text-align:center;
+        color:black;
+        font-size:1.2em;
+    }
+</style>
 <body>
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="index.jsp">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.jsp">Home</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.jsp">About</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.jsp">Sample Post</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.jsp">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<jsp:include page="nav.jsp"/>
 <!-- Page Header-->
 <header class="masthead" style="background-image: url('img/about-bg.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>result</h1>
+                    <h1>전체 회원 조회</h1>
+                    <table>
+                        <tr>
+                            <th>Email</th>
+                            <th>이름</th>
+                            <th>연락처</th>
+                            <th>주소</th>
+                        </tr>
                    <c:forEach var="member" items="${members}">
-                       <h3>${member.email} : ${member.name}</h3>
+                       <tr>
+                           <td>${member.email}</td>
+                           <td>${member.name}</td>
+                           <td>${member.phone}</td>
+                           <td>${member.address}</td>
+                       </tr>
                    </c:forEach>
+                    </table>
                 </div>
             </div>
         </div>
