@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
 
         <%-- <%@ include file="nav.jsp"%> --%>
         <!-- JSP 표준 액션 -->
-        <jsp:include page="nav.jsp"/>
+        <%@ include file="nav.jsp"%>
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('./img/home-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">

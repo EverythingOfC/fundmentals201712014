@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -29,7 +29,7 @@
 
                 <!-- 로그인 후 -->
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="member-detail?email=${login.email}">Detail</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="member-update-form?email=${login.email}">회원수정</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="member-update-form.jsp?email=${login.email}">회원수정</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="member-delete-form.jsp">회원탈퇴</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="member-signout-form.jsp">로그아웃</a></li>
             </ul>

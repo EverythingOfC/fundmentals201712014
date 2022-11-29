@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -27,9 +26,9 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <<%-- %= ~ %>> : expression --%>
-                            <h1><%= request.getParameter("fullname") + " : " + request.getRequestDispatcher("email") %></h1>
-                            <span class="subheading">This is what I do.</span>
+                            <%-- %= ~ %>> : expression --%>
+                            <h1>회원가입 성공!!!</h1>
+                            <span class="subheading">축하합니다.</span>
                         </div>
                     </div>
                 </div>

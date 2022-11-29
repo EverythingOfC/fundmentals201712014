@@ -21,7 +21,7 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
         List<Member> memberList = null;
 
         Member retMember = null;
-        String sql = "select * from member1";
+        String sql = "select * from member";
 
         try{
             conn = getConnection(); // DB 연결 객체 생성
@@ -33,6 +33,9 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
                 retMember = new Member(); // Member형 객체
                 retMember.setName(rs.getString("name"));
                 retMember.setEmail(rs.getString("email"));
+                retMember.setPw(rs.getString("pw"));
+                retMember.setAddress(rs.getString("address"));
+                retMember.setPhone(rs.getString("phone"));
                 memberList.add(retMember); // 계속 저장한다.
             }
 
@@ -49,7 +52,7 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
 
         int ret = 0;
 
-        String sql = "insert into member1 values(seq_member1.nextval,?,?,?,?,?)";
+        String sql = "insert into member values(seq_member.nextval,?,?,?,?,?)";
 
         try{
             conn = getConnection(); // DB 연결 객체 생성
@@ -78,7 +81,7 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
         List<Member> memberList = null;
 
         Member retMember = null;
-        String sql = "select * from member1 where email = '" + m.getEmail() +"'";
+        String sql = "select * from member where email = '" + m.getEmail() +"'";
 
         try{
             conn = getConnection(); // DB 연결 객체 생성
@@ -108,7 +111,7 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
 
         int ret = 0;
 
-        String sql = "update member1 set email = ?, pw = ?, name = ?, phone =?, address =? where email ='" + m.getEmail() +"'";
+        String sql = "update member set email = ?, pw = ?, name = ?, phone =?, address =? where email ='" + m.getEmail() +"'";
 
         try{
             conn = getConnection(); // DB 연결 객체 생성
@@ -136,7 +139,7 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
 
         int ret = 0;
 
-        String sql = "delete from member1 where email ='" + m.getEmail() +"'";
+        String sql = "delete from member where email ='" + m.getEmail() +"'";
 
         try{
             conn = getConnection(); // DB 연결 객체 생성

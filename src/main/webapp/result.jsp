@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,7 @@
 </style>
 <body>
 <!-- Navigation-->
-<jsp:include page="nav.jsp"/>
+<%@ include file="nav.jsp"%>
 <!-- Page Header-->
 <header class="masthead" style="background-image: url('img/about-bg.jpg')">
     <div class="container position-relative px-4 px-lg-5">
