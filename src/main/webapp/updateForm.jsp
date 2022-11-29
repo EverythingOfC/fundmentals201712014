@@ -5,12 +5,11 @@
   Time: 오후 4:07
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="utf-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
     <style>
-
         #check{
             cursor:pointer;
         }
@@ -53,7 +52,7 @@
 <form id="login" action="members" method="post"> <!-- member-list로 url 매핑된 이름이 있는 서블릿 파일로 간다.경로는 중요하지 않다. 서블릿의 value와 관련이 있다. -->
 
     <fieldset>
-        <legend>회원 가입</legend>
+        <legend>회원 수정</legend>
         <label for="name">이름:</label>
         <input type="text" id="name" name="name" value="" placeholder=" 1 ~ 10자 이내로 입력하세요."><br/>
 
@@ -69,12 +68,10 @@
         <label for="address">주소: </label>
         <input type="text" id="address" name="address"><br/>
 
-        <input type="submit" id="check" value="확인"/>
+        <input type="submit" name="check" id="check" value="확인"/>
 
     </fieldset>
-
 </form>
-
 
 </body>
 </html>
