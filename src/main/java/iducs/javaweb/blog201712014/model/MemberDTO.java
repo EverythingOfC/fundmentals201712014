@@ -1,4 +1,4 @@
-package iducs201712014a.javaweb.fundmentals.model;
+package iducs.javaweb.blog201712014.model;
 
 public class MemberDTO { // 데이터 전송 객체 ( VO(특정한 값을 담는 객체)와 DTO(값을 전송하기 위한 getter,setter객체) )
     private String fullname;

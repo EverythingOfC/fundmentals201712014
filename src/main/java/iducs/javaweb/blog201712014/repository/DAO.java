@@ -1,4 +1,4 @@
-package iducs201712014a.javaweb.fundmentals.repository;
+package iducs.javaweb.blog201712014.repository;
 
 import java.sql.Connection; // DBMS와 연결 관리를 담당하는 클래스
 import java.sql.PreparedStatement; // 연결된 DBMS에 전달한 SQL문장을 조작하기 위한 클래스 ( sql문을 외부값으로 업데이트 가능 )

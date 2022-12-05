@@ -1,4 +1,4 @@
-package iducs201712014a.javaweb.fundmentals.model;
+package iducs.javaweb.blog201712014.model;
 
 public class Member {
 

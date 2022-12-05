@@ -1,6 +1,6 @@
-package iducs201712014a.javaweb.fundmentals.repository;
+package iducs.javaweb.blog201712014.repository;
 
-import iducs201712014a.javaweb.fundmentals.model.Member;
+import iducs.javaweb.blog201712014.model.Member;
 
 import java.util.List; // 컬렉션 자료구조 List를 사용하기 위함
 
@@ -11,4 +11,5 @@ public interface MemberDAO { // 멤버 데이터에 접근하기 위한 인터�
     List<Member> readList();
     int update(Member m);
     int delete(Member m);
+    Member login(Member m);
 }

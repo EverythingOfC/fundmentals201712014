@@ -1,4 +1,4 @@
-package iducs201712014a.javaweb.fundmentals.repository;
+package iducs.javaweb.blog201712014.repository;
 
 import java.sql.*;
 

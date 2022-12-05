@@ -8,7 +8,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>Clean Blog - Start Bootstrap Theme</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico"/>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -17,18 +17,18 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
           rel="stylesheet" type="text/css"/>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- Navigation-->
-<%@ include file="nav.jsp"%>
+<%@ include file="../main/nav.jsp"%>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('./img/contact-bg.jpg')">
+<header class="masthead" style="background-image: url('../img/contact-bg.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>회원 가입</h1>
+                    <h1>상세 정보</h1>
                     <span class="subheading">Have questions? I have answers.</span>
                 </div>
             </div>
@@ -50,34 +50,34 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" action="member-create" method="get">
+                    <form id="contactForm" action="../member-create" method="get">
 
                         <div class="form-floating">
                             <input class="form-control" name="email" id="email" type="email"
-                                   placeholder="Enter your email..." data-sb-validations="email"/>
-                            <label for="email">Email</label>
+                                   placeholder="Enter your email..." data-sb-validations="email" readonly/>
+                            <label for="email">${myMember.email}</label>
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
 
                         <div class="form-floating">
                             <input class="form-control" name="name" id="name" type="text"
-                                   placeholder="Enter your name..." data-sb-validations=""/>
-                            <label for="name">Name</label>
+                                   placeholder="Enter your name..." data-sb-validations="" readonly/>
+                            <label for="name">${myMember.name}</label>
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
 
                         <div class="form-floating">
                             <input class="form-control" name="pw" id="pw" type="password"
-                                   placeholder="Enter your name..." data-sb-validations=""/>
-                            <label for="pw">Password</label>
+                                   placeholder="Enter your name..." data-sb-validations="" readonly/>
+                            <label for="pw">${myMember.pw}</label>
                             <div class="invalid-feedback" data-sb-feedback="pw:required">A name is required.</div>
                         </div>
 
                         <div class="form-floating">
                             <input class="form-control" name="phone" id="phone" type="tel" placeholder="Enter your phone number..."
-                                   data-sb-validations=""/>
-                            <label for="phone">Phone Number</label>
+                                   data-sb-validations="" readonly />
+                            <label for="phone">${myMember.phone}</label>
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
                                 required.
                             </div>
@@ -85,8 +85,8 @@
 
                         <div class="form-floating">
                             <input class="form-control" name="address" id="address" type="text" placeholder="Enter your phone number..."
-                                   data-sb-validations=""/>
-                            <label for="address">Address</label>
+                                   data-sb-validations="" readonly />
+                            <label for="address">${myMember.address}</label>
                             <div class="invalid-feedback" data-sb-feedback="address:required">A phone number is
                                 required.
                             </div>
@@ -112,8 +112,7 @@
                         <div class="d-none" id="submitErrorMessage">
                             <div class="text-center text-danger mb-3">Error sending message!</div>
                         </div>
-                        <!-- Submit Button-->
-                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
+
                     </form>
                 </div>
             </div>
@@ -121,11 +120,11 @@
     </div>
 </main>
 <!-- Footer-->
-<%@ include file="footer.jsp"%>
+<%@ include file="../main/footer.jsp"%>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+<script src="../js/scripts.js"></script>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <!-- * *                               SB Forms JS                               * *-->
 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

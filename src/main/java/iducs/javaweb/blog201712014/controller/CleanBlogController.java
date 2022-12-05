@@ -1,4 +1,4 @@
-package iducs201712014a.javaweb.fundmentals.controller;
+package iducs.javaweb.blog201712014.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

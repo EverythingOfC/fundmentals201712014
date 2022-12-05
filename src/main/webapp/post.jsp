@@ -19,7 +19,7 @@
     </head>
     <body>
         <!-- Navigation-->
-        <%@ include file="nav.jsp"%>
+        <%@ include file="main/nav.jsp"%>
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('./img/post-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
@@ -70,7 +70,7 @@
             </div>
         </article>
         <!-- Footer-->
-        <%@ include file="footer.jsp"%>
+        <%@ include file="main/footer.jsp"%>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

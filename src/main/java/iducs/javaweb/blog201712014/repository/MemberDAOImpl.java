@@ -1,6 +1,6 @@
-package iducs201712014a.javaweb.fundmentals.repository;
+package iducs.javaweb.blog201712014.repository;
 
-import iducs201712014a.javaweb.fundmentals.model.Member;
+import iducs.javaweb.blog201712014.model.Member;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -33,6 +33,9 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
                 retMember = new Member(); // Member형 객체
                 retMember.setName(rs.getString("name"));
                 retMember.setEmail(rs.getString("email"));
+                retMember.setPw(rs.getString("pw"));
+                retMember.setPhone(rs.getString("phone"));
+                retMember.setAddress(rs.getString("address"));
                 memberList.add(retMember); // 계속 저장한다.
             }
 
@@ -136,7 +139,7 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
 
         int ret = 0;
 
-        String sql = "delete from member1 where email ='" + m.getEmail() +"'";
+        String sql = "delete from member1 where pw = '" + m.getPw() + "'";
 
         try{
             conn = getConnection(); // DB 연결 객체 생성
@@ -150,5 +153,40 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
             closeResources(conn,stmt,pstmt,rs); // 메모리 해제
             return ret;
         }
+    }
+
+    @Override
+    public Member login(Member m) {
+
+        String sql = "select * from member1 where email = ? and pw = ?"; // email과 pw가 일치하는 결과갓반환
+
+        Member retMember = null;
+
+        try{
+            conn = getConnection(); // DB 연결 객체 생성
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1,m.getEmail());
+            pstmt.setString(2,m.getPw());
+
+            rs = pstmt.executeQuery();
+
+            if(rs.next()){ // 아이디가 있다면
+
+                retMember = new Member();
+                retMember.setName(rs.getString("name"));
+                retMember.setEmail(rs.getString("email"));
+                retMember.setAddress(rs.getString("address"));
+                retMember.setPw(rs.getString("pw"));
+                retMember.setPhone(rs.getString("phone"));
+            }
+
+        }catch(SQLException e){ // try문 오류처리
+            System.out.println(e.getMessage());
+        }finally {
+            closeResources(conn,stmt,pstmt,rs); // 메모리 해제
+            return retMember;
+        }
+
     }
 }
