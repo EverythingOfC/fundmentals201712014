@@ -39,7 +39,7 @@ public class MemberController extends HttpServlet {
 
             if ((memberList = memberDAOImpl.readList()) != null){
                 request.setAttribute("members",memberList);
-                request.getRequestDispatcher("../result.jsp").forward(request,response);
+                request.getRequestDispatcher("blog-list-view.jsp").forward(request,response);
             }
             else{
                 request.getRequestDispatcher("../error.jsp").forward(request,response);
@@ -76,7 +76,7 @@ public class MemberController extends HttpServlet {
             Member retMember = null; // 상세 정보를 가져오기 위함.
 
             if((retMember = memberDAOImpl.read(member)) != null){ // 일치하는 회원정보를 읽음.
-                request.getRequestDispatcher("../members/member-detail-form.jsp").forward(request,response);
+                request.getRequestDispatcher("../members/blog-read-view.jsp").forward(request,response);
             }
             else{                                                 // 못 읽었을 시
                 request.getRequestDispatcher("../status/fail.jsp").forward(request,response);
@@ -113,8 +113,9 @@ public class MemberController extends HttpServlet {
 
             if((retMember = memberDAOImpl.login(member)) != null){ // 초기화된 멤버 클래스의 필드 2개가 객체에 담겨서 넘어감.
 
-                session.setAttribute("myMember",retMember); // 로그인 세션 저장
-                request.setAttribute("retMember",retMember);
+                session.setAttribute("logined",retMember.getEmail()); // 로그인 이메일
+                session.setAttribute("name",retMember.getName());   // 로그인 이름
+                request.setAttribute("message",retMember.getName());
                 request.getRequestDispatcher("../status/success.jsp").forward(request,response);
             }
             else{                                                 // 로그인 실패
@@ -140,7 +141,7 @@ public class MemberController extends HttpServlet {
             if((ret = memberDAOImpl.update(m)) > 0) { // 정상 처리
 
                 session.setAttribute("myMember",m); // 회원 정보 갱신
-                request.getRequestDispatcher("../members/member-detail-form.jsp").forward(request,response);
+                request.getRequestDispatcher("../members/blog-read-view.jsp").forward(request,response);
             }
             else{
                 request.getRequestDispatcher("fail.jsp").forward(request,response);

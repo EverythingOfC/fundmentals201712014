@@ -19,7 +19,6 @@
 </head>
 <style>
 
-
     .page-heading table{
         width:700px;
         margin-top:10vw;
@@ -39,9 +38,9 @@
 </style>
 <body>
 <!-- Navigation-->
-<%@ include file="main/nav.jsp"%>
+<%@ include file="../main/nav.jsp"%>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('img/about-bg.jpg')">
+<header class="masthead" style="background-image: url('../img/about-bg.jpg');">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -81,7 +80,7 @@
     </div>
 </main>
 <!-- Footer-->
-<%@ include file="main/footer.jsp"%>
+<%@ include file="../main/footer.jsp"%>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
