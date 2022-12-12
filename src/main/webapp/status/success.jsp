@@ -27,7 +27,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
                             <%-- %= ~ %>> : expression --%>
-                            <h1>로그인 성공</h1>
+                            <h1>성공</h1>
                             <span style="margin-top:2vw;" class="subheading">${retMember.name}</span>
                         </div>
                     </div>

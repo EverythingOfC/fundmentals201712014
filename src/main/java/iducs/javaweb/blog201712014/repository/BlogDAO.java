@@ -14,4 +14,5 @@ public interface BlogDAO {
     int update(Blog blog);
     
     int delete(Blog blog);
+
 }

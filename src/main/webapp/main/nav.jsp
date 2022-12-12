@@ -23,9 +23,6 @@
                                         href="../main/index.jsp">메인 화면</a></li>
 
 
-                <c:set var="member" scope="session" value="${myMember}"/> <!-- retMember속성의 값으로 member변수를 세팅 -->
-
-
                 <c:if test="${message==null}"> <!-- 로그인 전 -->
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                             href="../members/member-login-form.jsp">로그인</a></li>
@@ -43,6 +40,10 @@
 
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                             href="../blogs/post-form.do">블로그작성</a></li>
+
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                                            href="../members/detail.do?email=${sessionScope.logined}">상세정보</a></li>
+
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                             href="../blogs/detail.do?email=${sessionScope.logined}">회원수정</a></li>
 

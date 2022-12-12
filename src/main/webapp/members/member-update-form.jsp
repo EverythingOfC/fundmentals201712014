@@ -54,14 +54,14 @@
 
                         <div class="form-floating">
                             <input class="form-control" readonly name="email" id="email" type="email"
-                                   placeholder="Enter your email..." data-sb-validations="email" value="${myMember.email}"/>
+                                   placeholder="Enter your email..." data-sb-validations="email" value="${member.email}"/>
                             <label for="email">Email</label>
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
 
                         <div class="form-floating">
-                            <input class="form-control" readonly name="name" id="name" type="text" value="${myMember.name}"
+                            <input class="form-control" readonly name="name" id="name" type="text" value="${member.name}"
                                    placeholder="Enter your name..." data-sb-validations=""/>
                             <label for="name">Name</label>
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
@@ -69,14 +69,14 @@
 
                         <div class="form-floating">
                             <input class="form-control" name="pw" id="pw" type="password"
-                                   placeholder="Enter your name..." data-sb-validations="" value="${myMember.pw}"/>
+                                   placeholder="Enter your name..." data-sb-validations="" value="${member.pw}"/>
                             <label for="pw">Password</label>
                             <div class="invalid-feedback" data-sb-feedback="pw:required">A name is required.</div>
                         </div>
 
                         <div class="form-floating">
                             <input class="form-control" name="phone" id="phone" type="tel" placeholder="Enter your phone number..."
-                                   data-sb-validations="" value="${myMember.phone}"/>
+                                   data-sb-validations="" value="${member.phone}"/>
                             <label for="phone">Phone Number</label>
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
                                 required.
@@ -85,7 +85,7 @@
 
                         <div class="form-floating">
                             <input class="form-control" name="address" id="address" type="text" placeholder="Enter your phone number..."
-                                   data-sb-validations="" value="${myMember.address}"/>
+                                   data-sb-validations="" value="${member.address}"/>
                             <label for="address">Address</label>
                             <div class="invalid-feedback" data-sb-feedback="address:required">A phone number is
                                 required.

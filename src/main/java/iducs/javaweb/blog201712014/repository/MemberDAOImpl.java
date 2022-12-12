@@ -78,8 +78,6 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
     @Override
     public Member read(Member m) {
 
-        List<Member> memberList = null;
-
         Member retMember = null;
         String sql = "select * from member1 where email = '" + m.getEmail() +"'";
 
@@ -158,17 +156,14 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
     @Override
     public Member login(Member m) {
 
-        String sql = "select * from member1 where email = ? and pw = ?"; // email과 pw가 일치하는 결과갓반환
-
         Member retMember = null;
+        String sql = "select * from member1 where email = ? and pw = ?"; // email과 pw가 일치하는 결과갓반환
 
         try{
             conn = getConnection(); // DB 연결 객체 생성
             pstmt = conn.prepareStatement(sql);
-
             pstmt.setString(1,m.getEmail());
             pstmt.setString(2,m.getPw());
-
             rs = pstmt.executeQuery();
 
             if(rs.next()){ // 아이디가 있다면
@@ -176,9 +171,6 @@ public class MemberDAOImpl extends OracleDAOImpl implements MemberDAO{ // Member
                 retMember = new Member();
                 retMember.setName(rs.getString("name"));
                 retMember.setEmail(rs.getString("email"));
-                retMember.setAddress(rs.getString("address"));
-                retMember.setPw(rs.getString("pw"));
-                retMember.setPhone(rs.getString("phone"));
             }
 
         }catch(SQLException e){ // try문 오류처리

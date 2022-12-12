@@ -70,15 +70,15 @@ public class MemberController extends HttpServlet {
             String email = request.getParameter("email");
 
             Member member = new Member();
-
             member.setEmail(email); // 프로퍼티 초기화
-
             Member retMember = null; // 상세 정보를 가져오기 위함.
 
             if((retMember = memberDAOImpl.read(member)) != null){ // 일치하는 회원정보를 읽음.
+                request.setAttribute("member",retMember);
                 request.getRequestDispatcher("../members/blog-read-view.jsp").forward(request,response);
             }
             else{                                                 // 못 읽었을 시
+                request.setAttribute("message","회원정보 상세보기에 실패");
                 request.getRequestDispatcher("../status/fail.jsp").forward(request,response);
             }
 
@@ -115,8 +115,8 @@ public class MemberController extends HttpServlet {
 
                 session.setAttribute("logined",retMember.getEmail()); // 로그인 이메일
                 session.setAttribute("name",retMember.getName());   // 로그인 이름
-                request.setAttribute("message",retMember.getName());
-                request.getRequestDispatcher("../status/success.jsp").forward(request,response);
+                request.setAttribute("message",retMember.getName());    // 로그인 성공 시 이름 전달
+                request.getRequestDispatcher("../main/index.jsp").forward(request,response);
             }
             else{                                                 // 로그인 실패
                 request.getRequestDispatcher("../status/fail.jsp").forward(request,response);
