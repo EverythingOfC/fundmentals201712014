@@ -15,7 +15,7 @@ import java.util.List;
 @WebServlet(name = "MemberController",
     urlPatterns = {"/members/members", "/members/member-create","/members/member-detail",  // 해당 url패턴들에 요청이 전달된다.
             "/members/member-login" , "/members/member-delete","/members/member-logout",
-            "/members/member-update"}
+            "/members/member-update","/members/member-search"}
 )
 
         // form의 action값과 일치하면 해당 서블릿 호출
@@ -35,17 +35,37 @@ public class MemberController extends HttpServlet {
 
         if(action.equals("members")){  // 회원관리
 
+            String sort = request.getParameter("sort"); // 정렬 방식을 받아옴.
+
             List<Member> memberList = new ArrayList<Member>();
 
-            if ((memberList = memberDAOImpl.readList()) != null){
-                request.setAttribute("members",memberList);
-                request.getRequestDispatcher("blog-list-view.jsp").forward(request,response);
+            if(sort==null) { // 정렬 방식이 선택되지 않았다면
+
+                if ((memberList = memberDAOImpl.readList()) != null) {
+                    request.setAttribute("members", memberList);
+                    request.getRequestDispatcher("../members/member-result.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("../main/index.jsp").forward(request, response);
+                }
             }
-            else{
-                request.getRequestDispatcher("../error.jsp").forward(request,response);
+
+            else{   // 정렬 방식이 선택됐다면
+
+                if ((memberList = memberDAOImpl.sortList(sort)) != null) {
+
+                    request.setAttribute("members", memberList);
+                    session.setAttribute("sort",sort); // 정렬방식 저장
+
+                    request.getRequestDispatcher("../members/member-result.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("../main/index.jsp").forward(request, response);
+                }
+
             }
         }
+        else if(action.equals("member-search")){
 
+        }
         else if(action.equals("member-create")){  // 회원가입
 
             int ret = 0;
@@ -70,15 +90,15 @@ public class MemberController extends HttpServlet {
             String email = request.getParameter("email");
 
             Member member = new Member();
+
             member.setEmail(email); // 프로퍼티 초기화
+
             Member retMember = null; // 상세 정보를 가져오기 위함.
 
             if((retMember = memberDAOImpl.read(member)) != null){ // 일치하는 회원정보를 읽음.
-                request.setAttribute("member",retMember);
-                request.getRequestDispatcher("../members/blog-read-view.jsp").forward(request,response);
+                request.getRequestDispatcher("../members/member-detail-form.jsp").forward(request,response);
             }
             else{                                                 // 못 읽었을 시
-                request.setAttribute("message","회원정보 상세보기에 실패");
                 request.getRequestDispatcher("../status/fail.jsp").forward(request,response);
             }
 
@@ -113,12 +133,12 @@ public class MemberController extends HttpServlet {
 
             if((retMember = memberDAOImpl.login(member)) != null){ // 초기화된 멤버 클래스의 필드 2개가 객체에 담겨서 넘어감.
 
-                session.setAttribute("logined",retMember.getEmail()); // 로그인 이메일
-                session.setAttribute("name",retMember.getName());   // 로그인 이름
-                request.setAttribute("message",retMember.getName());    // 로그인 성공 시 이름 전달
+                session.setAttribute("logined",retMember.getEmail()); // 로그인 상태 유지
+                session.setAttribute("message",retMember.getName());
                 request.getRequestDispatcher("../main/index.jsp").forward(request,response);
             }
             else{                                                 // 로그인 실패
+                request.setAttribute("message","로그인에 실패");
                 request.getRequestDispatcher("../status/fail.jsp").forward(request,response);
             }
         }
@@ -141,7 +161,7 @@ public class MemberController extends HttpServlet {
             if((ret = memberDAOImpl.update(m)) > 0) { // 정상 처리
 
                 session.setAttribute("myMember",m); // 회원 정보 갱신
-                request.getRequestDispatcher("../members/blog-read-view.jsp").forward(request,response);
+                request.getRequestDispatcher("../members/member-detail-form.jsp").forward(request,response);
             }
             else{
                 request.getRequestDispatcher("fail.jsp").forward(request,response);

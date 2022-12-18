@@ -23,7 +23,7 @@
 <!-- Navigation-->
 <%@ include file="../main/nav.jsp"%>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('../img/contact-bg.jpg')">
+<header class="masthead" style="background-image: url('../img/sky.png')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -50,7 +50,7 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" action="../member-create" method="get">
+                    <form id="contactForm" action="../member-update" method="get">
 
                         <div class="form-floating">
                             <input class="form-control" name="email" id="email" type="email"

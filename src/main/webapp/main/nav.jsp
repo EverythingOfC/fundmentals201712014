@@ -19,11 +19,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
 
-                <li class="nav-item"><a style="color:black;" class="nav-link px-lg-3 py-3 py-lg-4"
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                         href="../main/index.jsp">메인 화면</a></li>
 
 
-                <c:if test="${message==null}"> <!-- 로그인 전 -->
+                <c:if test="${logined==null}"> <!-- 로그인 전 -->
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                             href="../members/member-login-form.jsp">로그인</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
@@ -32,20 +32,16 @@
 
 
                 <!-- 관리자 모드 -->
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../blogs/list.do">회원목록</a></li>
 
                 <!-- 로그인 후 session -->
 
-                <c:if test="${message!=null}">
+                <c:if test="${logined!=null}">
+
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../blogs/list.do">블로그 목록</a></li>
 
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                             href="../blogs/post-form.do">블로그작성</a></li>
 
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                            href="../members/detail.do?email=${sessionScope.logined}">상세정보</a></li>
-
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                            href="../blogs/detail.do?email=${sessionScope.logined}">회원수정</a></li>
 
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../members/member-delete-form.jsp">회원탈퇴</a>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../members/member-logout">로그아웃</a>

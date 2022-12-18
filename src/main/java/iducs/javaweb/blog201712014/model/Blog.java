@@ -2,6 +2,8 @@ package iducs.javaweb.blog201712014.model;
 
 import lombok .*;   // 의존성 문제 해결
 
+import java.sql.Timestamp;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,43 +18,8 @@ public class Blog { // Blog DTO
     private String author;  // 작성자
     private String email;   // 이메일
 
-    public long getId() {
-        return id;
-    }
+    private String filepath;    // 파일 경로
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    private Timestamp regdatetime;  // 등록일
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

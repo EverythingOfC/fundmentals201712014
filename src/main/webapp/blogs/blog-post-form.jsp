@@ -23,12 +23,12 @@
 <!-- Navigation-->
 <%@ include file="../main/nav.jsp"%>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('../img/contact-bg.jpg')">
+<header class="masthead" style="background-image: url('../img/sky.png')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>회원 가입</h1>
+                    <h1>게시물 작성</h1>
                     <span class="subheading">Have questions? I have answers.</span>
                 </div>
             </div>
@@ -53,17 +53,18 @@
                     <form id="contactForm" action="post.do" method="get">
 
                         <div class="form-floating">
-                            <input class="form-control" name="title" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" />
-                            <label for="phone">Title</label>
+                            <input class="form-control" name="title" id="title" type="text" placeholder="Enter your phone number..." data-sb-validations="required" />
+                            <label for="title">Title</label>
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                         </div>
+
                         <div class="form-floating">
-                            <textarea class="form-control" name="content" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                            <textarea class="form-control" name="content" id="message" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                             <label for="message">Content</label>
                             <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" name="name" id="name" value="${requestScope.loginedName}"  type="text" placeholder="Enter your name..." data-sb-validations="required" readonly />
+                            <input class="form-control" name="author" id="name" value="${requestScope.loginedName}"  type="text" placeholder="Enter your name..." data-sb-validations="required" readonly />
                             <label for="name">Name</label>
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
@@ -96,7 +97,7 @@
                             <div class="text-center text-danger mb-3">Error sending message!</div>
                         </div>
                         <!-- Submit Button-->
-                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">send</button>
+                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">게시물 작성</button>
                     </form>
                 </div>
             </div>

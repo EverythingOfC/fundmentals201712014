@@ -12,4 +12,6 @@ public interface MemberDAO { // 멤버 데이터에 접근하기 위한 인터�
     int update(Member m);
     int delete(Member m);
     Member login(Member m);
+
+    List<Member> sortList(String sort);
 }

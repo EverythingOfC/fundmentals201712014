@@ -22,7 +22,7 @@
         <!-- Navigation-->
         <%@ include file="../main/nav.jsp"%>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('../img/about-bg.jpg')">
+        <header class="masthead" style="background-image: url('../img/sky.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -40,7 +40,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p> 확인 요청 드립니다. 불편을 드려 죄송합니다.</p>
+                        <p style="text-align:center;"> 확인 요청 드립니다. 불편을 드려 죄송합니다.</p>
                     </div>
                 </div>
             </div>

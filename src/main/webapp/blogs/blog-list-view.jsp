@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,44 +22,52 @@
 
     .page-heading table{
         width:700px;
-        margin-top:10vw;
+        margin-top:4vw;
     }
     .page-heading table td,.page-heading table th {
         padding:10px;
         border:2px solid black;
         border-collapse: collapse;
         text-align:left;
-        font-size:0.9em;
+        font-size:0.7em;
     }
     .page-heading table th{
         text-align:center;
         color:black;
-        font-size:1.2em;
+        font-size:1em;
     }
+    .page-heading table td a:hover{
+        color:red;
+    }
+    a{
+        text-decoration: none;
+        color:white;
+    }
+
 </style>
 <body>
 <!-- Navigation-->
 <%@ include file="../main/nav.jsp"%>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('../img/about-bg.jpg');">
+<header class="masthead" style="background-image: url('../img/sky.png');">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>전체 회원 조회</h1>
+                    <h1>블로그 전체 목록</h1>
                     <table>
                         <tr>
-                            <th>Email</th>
-                            <th>이름</th>
-                            <th>연락처</th>
-                            <th>주소</th>
+                            <th>작성자</th>
+                            <th>제목</th>
+                            <th>이메일</th>
+                            <th>등록일</th>
                         </tr>
-                   <c:forEach var="member" items="${members}">
+                   <c:forEach var="b" items="${bloglist}">
                        <tr>
-                           <td>${member.email}</td>
-                           <td>${member.name}</td>
-                           <td>${member.phone}</td>
-                           <td>${member.address}</td>
+                           <td><a href="../blogs/read.do?id=${b.id}">${b.author}</a></td>
+                           <td>${b.title}</td>
+                           <td>${b.email}</td>
+                       <td><fmt:formatDate value="${b.regdatetime}" pattern="yyyy년 M월 d일" type="date"/></td>
                        </tr>
                    </c:forEach>
                     </table>

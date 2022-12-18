@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +24,7 @@
 <!-- Navigation-->
 <%@ include file="../main/nav.jsp"%>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('../img/contact-bg.jpg')">
+<header class="masthead" style="background-image: url('../img/sky.png');">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -50,47 +51,43 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" action="member-update" method="get">
+                    <form id="contactForm" action="update.do" method="get">
+
+                        <input type="hidden" name="id" value="${requestScope.blog.id}">
+                        <div class="form-floating">
+                            <input class="form-control" name="author" id="author" type="text"
+                                   placeholder="Enter your author..." data-sb-validations="" readonly value="${requestScope.blog.author}"/>
+                            <label for="author">작성자</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
 
                         <div class="form-floating">
-                            <input class="form-control" readonly name="email" id="email" type="email"
-                                   placeholder="Enter your email..." data-sb-validations="email" value="${myMember.email}"/>
-                            <label for="email">Email</label>
+                            <input class="form-control" name="title" id="title" type="text"
+                                   placeholder="Enter your title..." data-sb-validations="" value="${requestScope.blog.title}"/>
+                            <label for="title">제목</label>
+                            <div class="invalid-feedback" data-sb-feedback="pw:required">A name is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <textarea class="form-control" name="content" id="content" placeholder="Enter your message here..." data-sb-validations="required">${requestScope.blog.content}</textarea>
+                            <label for="content">내용</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input class="form-control" name="email" id="email" type="email"
+                                   placeholder="Enter your email..." data-sb-validations="email" value="${requestScope.blog.email}"/>
+                            <label for="email">이메일</label>
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
 
                         <div class="form-floating">
-                            <input class="form-control" readonly name="name" id="name" type="text" value="${myMember.name}"
-                                   placeholder="Enter your name..." data-sb-validations=""/>
-                            <label for="name">Name</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            <input class="form-control" name="regdatetime" id="reg" type="text"
+                                   data-sb-validations="email" readonly value="${requestScope.blog.regdatetime}"/>
+                            <label for="reg">등록일</label>
                         </div>
 
-                        <div class="form-floating">
-                            <input class="form-control" name="pw" id="pw" type="password"
-                                   placeholder="Enter your name..." data-sb-validations="" value="${myMember.pw}"/>
-                            <label for="pw">Password</label>
-                            <div class="invalid-feedback" data-sb-feedback="pw:required">A name is required.</div>
-                        </div>
-
-                        <div class="form-floating">
-                            <input class="form-control" name="phone" id="phone" type="tel" placeholder="Enter your phone number..."
-                                   data-sb-validations="" value="${myMember.phone}"/>
-                            <label for="phone">Phone Number</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
-                                required.
-                            </div>
-                        </div>
-
-                        <div class="form-floating">
-                            <input class="form-control" name="address" id="address" type="text" placeholder="Enter your phone number..."
-                                   data-sb-validations="" value="${myMember.address}"/>
-                            <label for="address">Address</label>
-                            <div class="invalid-feedback" data-sb-feedback="address:required">A phone number is
-                                required.
-                            </div>
-                        </div>
                         <br/>
 
                         <!-- Submit success message-->
@@ -113,7 +110,9 @@
                             <div class="text-center text-danger mb-3">Error sending message!</div>
                         </div>
                         <!-- Submit Button-->
-                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">회원수정</button>
+                        <div style="text-align:center;" class="button">
+                            <button style="font-size:0.8em;" class="btn btn-primary text-uppercase" id="submitButton" type="submit">블로그 내용 수정</button>
+                        </div>
                     </form>
                 </div>
             </div>

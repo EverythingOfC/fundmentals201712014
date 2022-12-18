@@ -23,17 +23,17 @@
         <!-- JSP 표준 액션 -->
         <%@ include file="nav.jsp"%>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('../img/home-bg.jpg'); padding-top:7rem; padding-bottom:7rem;">
+        <header class="masthead" style="background-image: url('../img/sky.png');">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
 
-                            <c:set var="member" scope = "session" value="${myMember}"/>
-                            <c:if test="${member!=null}">
-                                <h1><span style="color:red;">${myMember.name}</span>님의 블로그</h1>
+
+                            <c:if test="${logined!=null}">
+                                <h1><span style="color:red;">${message}</span>님의 블로그</h1>
                             </c:if>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+
                         </div>
                     </div>
                 </div>
